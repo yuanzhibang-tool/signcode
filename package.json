@@ -1,8 +1,8 @@
 {
-  "name": "signcode",
-  "version": "1.0.0",
+  "name": "yzb-signcode",
+  "version": "1.0.1",
   "description": "Sign Windows executables from a Mac",
-  "repository": "https://github.com/kevinsawicki/signcode",
+  "repository": "https://github.com/yuanzhibang-tool/signcode",
   "main": "index.js",
   "scripts": {
     "test": "mocha && standard"

@@ -46,7 +46,7 @@ exports.verify = function (options, callback) {
   spawnVerify(options, callback)
 }
 
-function spawnSign (options, callback) {
+function spawnSign(options, callback) {
   var outputPath = getOutputPath(options.path, options.hash)
   var args = [
     '-in',
@@ -54,7 +54,7 @@ function spawnSign (options, callback) {
     '-out',
     outputPath,
     '-t',
-    'http://timestamp.verisign.com/scripts/timstamp.dll'
+    'http://timestamp.digicert.com'
   ]
 
   var certExtension = path.extname(options.cert)
@@ -130,7 +130,7 @@ function spawnSign (options, callback) {
   })
 }
 
-function spawnVerify (options, callback) {
+function spawnVerify(options, callback) {
   var args = [
     'verify',
     '-in',
@@ -171,13 +171,13 @@ function spawnVerify (options, callback) {
   })
 }
 
-function formatErrorOutput (output) {
+function formatErrorOutput(output) {
   return output.split('\n').filter(function (line) {
     return !/^\d+:|osslsigncode\(|\*\*\*\s/.test(line)
   }).join('\n')
 }
 
-function getOutputPath (inputPath, hash) {
+function getOutputPath(inputPath, hash) {
   var extension = path.extname(inputPath)
   var name = path.basename(inputPath, extension)
   var outputName = name + '-signed'
@@ -186,6 +186,6 @@ function getOutputPath (inputPath, hash) {
   return path.join(path.dirname(inputPath), outputName)
 }
 
-function getSigncodePath () {
+function getSigncodePath() {
   return path.join(__dirname, 'vendor', process.platform, 'osslsigncode')
 }
