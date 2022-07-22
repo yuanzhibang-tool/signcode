@@ -1,6 +1,6 @@
 {
   "name": "yzb-signcode",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sign Windows executables from a Mac",
   "repository": "https://github.com/yuanzhibang-tool/signcode",
   "main": "index.js",
